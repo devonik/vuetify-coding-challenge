@@ -79,6 +79,10 @@ const selectedItem = ref<BlogItem>()
 const isEditDialogOpen = ref(false)
 const isDeleteDialogOpen = ref(false)
 
+watch(isEditDialogOpen, (value) => {
+  if(!value) selectedItem.value = undefined
+})
+
 function edit(id: string){
   selectedItem.value = blogStore.list.find(item => item.id === id)
   isEditDialogOpen.value = true

@@ -120,6 +120,7 @@ const isFormValid = ref()
 const model = ref<BlogItem>(props.item || {...initialItem}) 
 
 watch(isDialogOpen, (value) => {
+  console.log("isDialogOpen", value)
     if(!value){
         //Close dialog
         model.value = {...initialItem}
